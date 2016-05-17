@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511232216) do
+ActiveRecord::Schema.define(version: 20160511232218) do
 
   create_table "bookings", force: :cascade do |t|
     t.string   "booking_id",         limit: 255
@@ -54,6 +54,22 @@ ActiveRecord::Schema.define(version: 20160511232216) do
     t.string   "fines_date_pay", limit: 255
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "staffs", force: :cascade do |t|
+    t.string   "staff_id",       limit: 255
+    t.string   "user_id",        limit: 255
+    t.string   "staff_position", limit: 255
+    t.string   "staff_email",    limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string   "id_student", limit: 255
+    t.string   "user_id",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|

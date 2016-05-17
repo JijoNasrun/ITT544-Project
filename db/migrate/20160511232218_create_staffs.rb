@@ -1,7 +1,6 @@
 class CreateStaffs < ActiveRecord::Migration
   def change
     create_table :staffs do |t|
-
     	t.string :staff_id
     	t.string :user_id
     	t.string :staff_position
