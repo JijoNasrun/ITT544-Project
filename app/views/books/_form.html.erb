@@ -1,0 +1,24 @@
+<%= form_for @book do |b| %>
+	<%= b.label :'book id:' %>
+	<%= b.text_field :book_id %>
+	<br>
+	<%= b.label :'isdn:' %>
+	<%= b.text_field :book_isdn %>
+	<br>
+	<%= b.label :'title:' %>
+	<%= b.text_field :book_title %>
+	<br>
+	<%= b.label :'author:' %>
+	<%= b.text_field :book_author %>
+	<br>
+	<%= b.label :'book status:' %>
+	<%= b.text_field :book_status %>
+	<br>
+	<%= b.label :'edition:' %>
+	<%= b.text_field :book_edition %>
+	<br>
+	<%= b.label :'book image:' %>
+	<%= b.text_field :book_image %>
+	<br>
+	<%= b.submit %>
+<% end %>
