@@ -1,3 +1,3 @@
 class Booking < ActiveRecord::Base
-	has many :books
+	has_many :books
 end
