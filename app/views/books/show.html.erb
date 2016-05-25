@@ -1,0 +1,16 @@
+book id: <%= @book.book_id %>
+<br>
+isdn: <%= @book.book_isdn %>
+<br>
+title: <%= @book.book_title %>
+<br>
+author: <%= @book.book_author %>
+<br>
+book status: <%= @book.book_status %>
+<br>
+edition: <%= @book.book_edition %>
+<br>
+book image: <%= @book.book_image %>
+<br>
+<%= link_to 'edit', edit_book_path %><br>
+<%= link_to 'book list', books_path %>
