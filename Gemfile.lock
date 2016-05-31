@@ -155,7 +155,10 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+<<<<<<< HEAD
   bookable (~> 0.0.4)
+=======
+>>>>>>> 49681fdfe774c0744d3f5a5eed296b4604c93548
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 1.2)

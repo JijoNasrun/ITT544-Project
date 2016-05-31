@@ -1,8 +1,31 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :books do
 	  resources :bookings
 	end
+=======
+<<<<<<< HEAD
+  
+
+
+  root 'sessions#new' 
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+  resources :users
+ 
+ scope :LibrarySystem do
+    resources :users do
+      collection do
+        post 'create'
+      end
+    end
+  end
+
+=======
+>>>>>>> 49681fdfe774c0744d3f5a5eed296b4604c93548
   resources :books
+>>>>>>> c151e561c2fcdcb343f1ccc53d5ef2aa6822b932
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

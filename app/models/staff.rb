@@ -1,2 +1,2 @@
-class Staff < ActiveRecord::Base
+class Staff < User
 end

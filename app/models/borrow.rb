@@ -1,4 +1,4 @@
 class Borrow < ActiveRecord::Base
-	has_one :booking
-	has_many :books, through :booking
+	has_many :books
+	has_one :fine
 end
