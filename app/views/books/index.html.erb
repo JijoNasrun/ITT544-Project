@@ -1,21 +1,11 @@
-Book List<hr>
-<%= link_to 'Add new Book', new_book_path %><br>
-<table border='1'>
-	<tr>
-		<th>ID</th>
-		<th>Title</th>
-		<th>Author</th>
-		<th colspan='3'></th>
-	</tr>
+<h3>books</h3>
 
-	<% @book.each do |book| %>
-		<tr>
-			<td><%= book.book_id %></td>
-			<td><%= book.book_title %></td>
-			<td><%= book.book_author %></td>
-			<td><%= link_to 'Show', book_path(book) %></td>
-			<td><%= link_to 'Edit', edit_book_path(book) %></td>
-			<td><%= link_to 'Delete', book_path(book), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		</tr>
-	<% end %>
-</table>
+<% @books.each do |book| %>
+  <div class="book">
+    <%= book.name %>
+    <%= link_to "Show all bookings", book_bookings_path(book) %>
+    <%= link_to "Delete", book_path(book), data: { confirm: 'Are you sure?' }, method: :delete %>
+    <%= link_to "Edit", edit_book_path(book) %>
+    <%= link_to "Add booking", new_book_booking_path(book) %>
+  </div>
+<% end %>

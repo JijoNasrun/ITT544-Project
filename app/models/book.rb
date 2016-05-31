@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-	belongs_to :booking
-	validates :book_id, presence: true
-	validates :book_title, presence: true
+  validates :name, presence: true, uniqueness: true
+
+  has_many :bookings
 end

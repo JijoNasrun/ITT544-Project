@@ -1,49 +1,53 @@
 class BooksController < ApplicationController
-	def index
-		@book = Book.all
-	end
 
-	def show
-		@book = Book.find(params[:id])
-	end
+  def index
+    @books = Book.all
+  end
 
-	def new
-		@book = Book.new
-	end
+  def new
+    @book = Book.new
+  end
 
-	def edit
-		@book = Book.find(params[:id])
-	end
+  def create
+    @book = Book.create(book_params)
+    if @book.save
+      name = @book.name
+      isbn = @book.isbn
+      author = @book.author
+      publisher = @book.author
+      redirect_to books_path
+      flash[:notice] = "#{name} created"
+    else
+      render 'new'
+      flash[:error] = "Unable to create book. Please try again"
+    end
+  end
 
-	def create
-		@book = Book.new(book_params)
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to books_path
+  end
 
-		if @book.save
-			redirect_to @book
-		else
-			render 'new'
-		end
-	end
+  def edit
+    @book = Book.find(params[:id])
+  end
 
-	def update
-		@book = Book.find(params[:id])
+  def update
+    @book = Book.find(params[:id])
+    @book.update book_params
+    if @book.save
+      flash[:notice] = "Your book was updated succesfully"
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
 
-		if @book.update(book_params)
-			redirect_to @book
-		else
-			render 'edit'
-		end
-	end
+  private
 
-	def destroy
-		@book = Book.find(params[:id])
-		@book.destroy
+    def book_params
+      params.require(:book).permit(:name, :delete, :author, :publisher, :isbn,)
+    end
 
-		redirect_to books_path
-	end
-
-	private
-		def book_params
-			params.require(:book).permit(:book_id, :book_isdn, :book_title, :book_author, :book_status, :book_edition, :book_image)
-		end
 end
