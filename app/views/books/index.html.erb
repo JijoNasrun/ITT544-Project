@@ -1,4 +1,4 @@
-<h3>books</h3>
+<h3>Books List</h3>
 
 <% @books.each do |book| %>
   <div class="book">
@@ -6,6 +6,6 @@
     <%= link_to "Show all bookings", book_bookings_path(book) %>
     <%= link_to "Delete", book_path(book), data: { confirm: 'Are you sure?' }, method: :delete %>
     <%= link_to "Edit", edit_book_path(book) %>
-    <%= link_to "Add booking", new_book_booking_path(book) %>
+    <%= link_to "Add booking", book_bookings_path(book) %>
   </div>
 <% end %>

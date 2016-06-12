@@ -1,22 +1,45 @@
-<h3> Bookings for <%= @book.name %></h3>
-<table class="bookings_table">
-  <tr>
-    <th>Start</th>
-    <th>End</th>
-  </tr>
-  
-  <% @bookings.each do |booking| %>
-  <tr>
-    <td>
-      <%= booking.start_time.strftime('%e %b %Y %H:%M%p') %>
-    </td>
-    <td>
-      <%= (booking.calculate_end_time + 60).strftime('%e %b %Y %H:%M%p') %>
-    </td>
-    <td><%= link_to "Delete", book_booking_path(@book, booking), data: { confirm: 'Are you sure?' }, method: :delete %>
-    </td>
-    <td><%= link_to "Edit", edit_book_booking_path(@book, booking) %>
-    </td>
-  </tr>
-  <% end %>
-</table>
+
+Create a new Booking for <%= @book.name %>
+
+<%= form_for ([@book, @book.bookings.build]) do |f| %>
+
+	
+ 	<%= f.text_field :start_time, id:'booking', placeholder: 'Start Date', class: "datepicker"%>
+ 	<%= f.text_field :end_time, id:'end_Date', placeholder: 'End Date' %>
+	
+
+<%= f.submit 'Submit' %>
+
+<% end %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker').datepicker({ 
+    	format:'yyyy-mm-dd',
+    	startDate: "tomorrow" 
+     }).val();
+    $('.datepicker').change(function() { getdate(); });
+
+  });
+</script>
+
+<script type="text/javascript">
+
+
+
+function getdate() {
+    var tt =  document.getElementById('booking').value;
+
+    var date = new Date(tt);
+    var newdate = new Date(date);
+
+    newdate.setDate(newdate.getDate() + 7);
+    
+    var dd = newdate.getDate();
+    var mm = newdate.getMonth() + 1;
+    var y = newdate.getFullYear();
+
+    var someFormattedDate = y + '-' + mm + '-' + dd;
+    var x=new Date(someFormattedDate).toISOString().split('T')[0];
+    document.getElementById('end_Date').value = x;
+}
+</script>

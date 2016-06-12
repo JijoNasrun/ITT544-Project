@@ -12,7 +12,13 @@ class UsersController < ApplicationController
     user.user_address = "#{user_params[:address]}"
     user.user_contact ="#{user_params[:phone]}"
     user.user_level = "#{user_params[:level]}"
+    user.email = "#{user_params[:email]}"
     user.save
+
+     flash[:notice] = "Account successfully created"
+     redirect_to login_path
+
+
   end
 
   def show

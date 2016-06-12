@@ -4,6 +4,7 @@ class CreateBookings < ActiveRecord::Migration
       t.datetime :start_time
       t.datetime :end_time
       t.integer :length
+      t.integer :status
       t.belongs_to :book, index: true, foreign_key: true
     end
   end

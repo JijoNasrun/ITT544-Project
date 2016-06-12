@@ -1,7 +1,11 @@
 class BooksController < ApplicationController
 
   def index
+    
+    @user = User.find(session[:user_id])
     @books = Book.all
+
+    
   end
 
   def new
@@ -47,7 +51,7 @@ class BooksController < ApplicationController
   private
 
     def book_params
-      params.require(:book).permit(:name, :delete, :author, :publisher, :isbn,)
+      params.require(:book).permit(:id,:name, :delete, :author, :publisher, :isbn,)
     end
 
 end

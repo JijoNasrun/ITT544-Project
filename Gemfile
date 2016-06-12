@@ -26,8 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
 
-gem 'bookable', '~> 0.0.4'
- gem 'responders', '~> 2.0'
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                             	  :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
